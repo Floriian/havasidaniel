@@ -26,13 +26,13 @@ export function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-3 gap-16">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+            <div className="grid grid-cols-3 gap-4">
                 <input {...register("email")} className="border-2 border-gray-500" />
                 <input {...register("name")} className="border-2 border-gray-500" />
                 <input {...register("phoneNumber")} className="border-2 border-gray-500" />
             </div>
-            <textarea {...register("comment")} className="border-2 border-gray-500" />
+            <textarea {...register("comment")} className="border-2 border-gray-500 w-full" />
             <ReCAPTCHA size="normal" sitekey="6LeFlx8pAAAAALV3R7myD7JZjCaqSaN5g_w5VaaE" onChange={verifiyCaptcha} ref={captchaRef} />
             <button type="button" disabled={!verified}>Submit</button>
         </form>
