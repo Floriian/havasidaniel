@@ -2,7 +2,7 @@
 
 import { ContactSchema } from "@/features/contact";
 
-export async function handleContactRequest(formData: ContactSchema) {
+export async function createContact(formData: ContactSchema) {
   console.log({ formData });
   return {
     success: true,

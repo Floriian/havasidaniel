@@ -1,4 +1,4 @@
-import { ContactForm } from '@/features/contact'
+import { ContactForm } from '@features/contact'
 import Image from 'next/image'
 
 export default function Home() {
