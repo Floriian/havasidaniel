@@ -24,8 +24,8 @@ export function ContactForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} action="/" method="POST" className="grid">
-                <div className="grid-cols-3">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-3 gap-16">
                     <input {...register("email")} className="border-2 border-gray-500" />
                     <input {...register("name")} className="border-2 border-gray-500" />
                     <input {...register("phoneNumber")} className="border-2 border-gray-500" />
