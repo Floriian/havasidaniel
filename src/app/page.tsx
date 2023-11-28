@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 scroll-smooth">
+    <main className="flex min-h-screen items-center justify-between p-24 scroll-smooth flex-col">
       <ContactForm />
       <Link href="#landing" scroll={true}>Landing</Link>
       <Link href="#works" scroll={true}>Works</Link>

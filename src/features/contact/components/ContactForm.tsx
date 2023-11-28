@@ -4,7 +4,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { actions, contactSchema, type ContactSchema } from "@features/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useRef, useState } from "react";
+import {
+    useRef,
+    useState
+} from "react";
 export function ContactForm() {
     const captchaRef = useRef<ReCAPTCHA>(null);
 
@@ -23,17 +26,15 @@ export function ContactForm() {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="grid grid-cols-3 gap-16">
-                    <input {...register("email")} className="border-2 border-gray-500" />
-                    <input {...register("name")} className="border-2 border-gray-500" />
-                    <input {...register("phoneNumber")} className="border-2 border-gray-500" />
-                </div>
-                <textarea {...register("comment")} className="border-2 border-gray-500" />
-                <ReCAPTCHA size="normal" sitekey="6LeFlx8pAAAAALV3R7myD7JZjCaqSaN5g_w5VaaE" onChange={verifiyCaptcha} ref={captchaRef} />
-                <button disabled={!verified}>Submit</button>
-            </form>
-        </>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-3 gap-16">
+                <input {...register("email")} className="border-2 border-gray-500" />
+                <input {...register("name")} className="border-2 border-gray-500" />
+                <input {...register("phoneNumber")} className="border-2 border-gray-500" />
+            </div>
+            <textarea {...register("comment")} className="border-2 border-gray-500" />
+            <ReCAPTCHA size="normal" sitekey="6LeFlx8pAAAAALV3R7myD7JZjCaqSaN5g_w5VaaE" onChange={verifiyCaptcha} ref={captchaRef} />
+            <button type="button" disabled={!verified}>Submit</button>
+        </form>
     )
 }
