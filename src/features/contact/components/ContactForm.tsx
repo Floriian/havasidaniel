@@ -20,6 +20,7 @@ export function ContactForm() {
                 <input {...register("email")} />
                 <input {...register("name")} />
                 <input {...register("phoneNumber")} />
+                <input {...register("comment")} />
                 <button>Submit</button>
             </form>
         </>

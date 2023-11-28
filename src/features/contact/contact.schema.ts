@@ -7,6 +7,7 @@ export const contactSchema = z.object({
     .email("Hibás email formátum.")
     .min(1, "Az email megadása kötelező."),
   phoneNumber: z.string().min(1, "A telefonszám megadása kötelező."),
+  comment: z.string(),
 });
 
 export type ContactSchema = z.infer<typeof contactSchema>;
