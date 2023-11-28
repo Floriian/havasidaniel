@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { DarkModeProvider } from '@features/app'
+import { DarkModeProvider, Navbar } from '@features/app'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <DarkModeProvider>
+          <header>
+            <Navbar />
+          </header>
           {children}
         </DarkModeProvider>
       </body>
