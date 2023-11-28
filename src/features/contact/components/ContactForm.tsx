@@ -16,11 +16,13 @@ export function ContactForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} action="/" method="POST">
-                <input {...register("email")} />
-                <input {...register("name")} />
-                <input {...register("phoneNumber")} />
-                <input {...register("comment")} />
+            <form onSubmit={handleSubmit(onSubmit)} action="/" method="POST" className="grid">
+                <div className="grid-cols-3">
+                    <input {...register("email")} className="border-2 border-gray-500" />
+                    <input {...register("name")} className="border-2 border-gray-500" />
+                    <input {...register("phoneNumber")} className="border-2 border-gray-500" />
+                </div>
+                <textarea {...register("comment")} className="border-2 border-gray-500" />
                 <button>Submit</button>
             </form>
         </>
