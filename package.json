@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
+    "aws-sdk": "^2.1506.0",
     "clsx": "^2.0.0",
     "next": "14.0.3",
     "react": "^18",
