@@ -1,16 +1,10 @@
 "use client";
 
+import { Button } from "@components/button";
 import { Image } from "@components/image";
 import { Spinner } from "@components/spinner";
 import { actions, useGalleryStore } from "@features/gallery";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useMemo, useState, useEffect, ReactComponentElement } from "react";
-
-
-const WeddingImages = dynamic(() => import("./WeddingImages"));
-const PartyImages = dynamic(() => import("./PartyImages"));
-const MixedImages = dynamic(() => import("./MixedImages"));
+import { useState, useEffect } from "react";
 
 export function GalleryImages() {
     const [gallery, setGallery] = useState<"mixed" | "wedding" | "party">("mixed");
@@ -29,16 +23,18 @@ export function GalleryImages() {
     }, [gallery]);
 
     return (
-        <>
-            <button onClick={() => setGallery("mixed")}>Mixed Images</button>
-            <button onClick={() => setGallery("wedding")}>Wedding Images</button>
-            <button onClick={() => setGallery("party")}>Party Images</button>
+        <div className="flex flex-col gap-4">
+            <div className="w-full flex justify-center gap-4">
+                <Button onClick={() => setGallery("mixed")} primary={gallery === "mixed"} key="mixed">Összes kép</Button>
+                <Button onClick={() => setGallery("wedding")} primary={gallery === "wedding"} key="wedding">Esküvői képek</Button>
+                <Button onClick={() => setGallery("party")} primary={gallery === "party"} key="party">Party képek</Button>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" id="gallery">
                 {isLoading && new Array(16).fill(null).map((_, i) => (<Spinner key={i} />))}
-                {!isLoading && imgs?.map((img, i) => (
+                {!isLoading && imgs?.slice(0, 16).map((img, i) => (
                     <Image src={img} alt={img} key={i} sizes="(max-width: 1024px) 100vw, 700px" />
                 ))}
             </div>
-        </>
+        </div>
     )
 }

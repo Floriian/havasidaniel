@@ -2,13 +2,13 @@ import { ButtonHTMLAttributes, forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@utils/cn";
 
-const variants = cva("border-2 rounded-md", {
+const variants = cva("border-2 rounded-xl px-4 py-2", {
     variants: {
         variant: {},
         size: {},
-        active: {
-            true: "bg-red-500",
-            false: "bg-green-500"
+        primary: {
+            true: "bg-white text-purple-900",
+            false: "bg-transparent"
         }
     },
 
@@ -17,11 +17,11 @@ const variants = cva("border-2 rounded-md", {
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof variants> { }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, active, ...props }, ref) => {
+    ({ className, variant, primary, ...props }, ref) => {
         return (
             <button
                 ref={ref}
-                className={cn(variants({ variant, active, className }))}
+                className={cn(variants({ variant, primary, className }))}
                 {...props}
             />
         );
