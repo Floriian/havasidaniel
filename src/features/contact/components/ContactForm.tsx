@@ -41,7 +41,7 @@ export function ContactForm() {
             </div>
             <textarea {...register("comment")} className="border-2 border-gray-500 w-full" />
             <ReCAPTCHA size="normal" sitekey="6LeFlx8pAAAAALV3R7myD7JZjCaqSaN5g_w5VaaE" onChange={verifiyCaptcha} ref={captchaRef} />
-            <Button primary={!verified} active={false}>Submit</Button>
+            <Button disabled={!verified} primary={true}>Submit</Button>
         </form>
     )
 }
