@@ -21,7 +21,7 @@ export async function getGalleryImages(
 
   const imgs = Contents?.filter(
     (content) =>
-      content?.Size > 0 &&
+      (content.Size ? content.Size > 0 : true) &&
       (type === "mixed" || content.Key?.split("/")[1] === type),
   ).map((content) => "https://d218d58n4tyfby.cloudfront.net/" + content.Key);
 
