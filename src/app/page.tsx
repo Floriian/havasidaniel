@@ -9,13 +9,13 @@ import Link from 'next/link';
 export default async function Home() {
 
   return (
-    <section className="flex min-h-screen items-center justify-between p-24 scroll-smooth flex-col">
+    <section className="flex min-h-screen items-center justify-between scroll-smooth flex-col">
       <div id="landing">
         <h1 className="text-4xl">LANDING</h1>
 
       </div>
-      <div id="gallery">
-        <h1 className="text-4xl">WORKS</h1>
+      <div id="gallery" className='w-4/5'>
+        <h1 className="text-4xl uppercase font-bold text-center">Galéria</h1>
         <GalleryImages />
       </div>
       <div id="contact">

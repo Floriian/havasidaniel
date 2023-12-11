@@ -1,11 +1,12 @@
 "use client";
 
 import { Image } from "@components/image";
-import { actions } from "@features/gallery";
+import { actions, useGalleryStore } from "@features/gallery";
 import { useEffect, useState } from "react";
 
 export default function PartyImages() {
     const [imgs, setImgs] = useState<string[]>();
+    const { setIsLoading } = useGalleryStore();
 
     useEffect(() => {
         const fetchImages = async () => {
