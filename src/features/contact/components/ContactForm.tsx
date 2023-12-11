@@ -9,6 +9,7 @@ import {
     useState
 } from "react";
 import clsx from "clsx";
+import { Button } from "@components/button";
 export function ContactForm() {
     const captchaRef = useRef<ReCAPTCHA>(null);
 
@@ -40,7 +41,7 @@ export function ContactForm() {
             </div>
             <textarea {...register("comment")} className="border-2 border-gray-500 w-full" />
             <ReCAPTCHA size="normal" sitekey="6LeFlx8pAAAAALV3R7myD7JZjCaqSaN5g_w5VaaE" onChange={verifiyCaptcha} ref={captchaRef} />
-            <button disabled={!verified}>Submit</button>
+            <Button disabled={!verified} active={false}>Submit</Button>
         </form>
     )
 }
