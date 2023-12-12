@@ -25,7 +25,7 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(
         })
         return (
             <div className={cn(variants({ className, variant }))}>
-                <NextImage ref={ref} src={src} priority alt={alt} sizes={sizes} fill className={grayScale} />
+                <NextImage ref={ref} src={src} alt={alt} sizes={sizes} fill className={grayScale} />
             </div>
         );
     }
