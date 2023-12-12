@@ -35,6 +35,7 @@ export function GalleryImages() {
                 </Button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" id="gallery">
+                {isLoading && new Array(16).fill(null).map((_, i) => (<Spinner key={i} />))}
                 {!isLoading && imgs?.slice(0, 4).map((img, i) => (
                     <Image src={img} alt={img} key={i} sizes="(max-width: 1024px) 100vw, 700px" />
                 ))}
