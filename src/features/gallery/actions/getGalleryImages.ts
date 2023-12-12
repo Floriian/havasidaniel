@@ -23,7 +23,9 @@ export async function getGalleryImages(
     (content) =>
       (content?.Size ?? 0) > 0 &&
       (type === "mixed" || content.Key?.split("/")[1] === type),
-  ).map((content) => "https://d218d58n4tyfby.cloudfront.net/" + content.Key);
+  )
+    .slice(0, 4)
+    .map((content) => "https://d218d58n4tyfby.cloudfront.net/" + content.Key);
 
   return imgs;
 }

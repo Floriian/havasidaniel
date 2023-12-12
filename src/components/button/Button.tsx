@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@utils/cn";
 
-const variants = cva("border-2 rounded-xl px-4 py-2", {
+const variants = cva("border-2 rounded-xl px-4 py-2 transition-colors duration-300", {
     variants: {
         variant: {},
         size: {},
