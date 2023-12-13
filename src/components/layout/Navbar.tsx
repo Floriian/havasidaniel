@@ -14,7 +14,7 @@ export function Navbar() {
         "bg-zinc-950": !isInLanding,
     })
 
-    const activeLink = clsx("text-[14px] px-[11.2px] py-[5px] border-2 rounded-md bg hover:bg-white hover:text-purple-900 transition-colors duration-300 backdrop-blur-xl")
+    const activeLink = clsx("text-[14px] py-2.5 px-1.5 border-2 rounded-md bg hover:bg-white hover:text-purple-900 transition-colors duration-300 backdrop-blur-xl")
 
     return (
         <header className="sticky z-50 top-0 ">
