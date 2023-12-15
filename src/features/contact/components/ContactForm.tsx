@@ -34,13 +34,13 @@ export function ContactForm() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <div className="grid grid-cols-3 gap-4">
-                <Input type="text" label="Név" {...register("name")} error={!!errors.name} />
-                <Input type="text" label="E-mail cím" {...register("email")} error={!!errors.email} />
-                <Input type="text" label="Telefonszám" {...register("phoneNumber")} error={!!errors.phoneNumber} />
+                <Input type="text" label="Név" {...register("name")} error={!!errors.name} name="name"/>
+                <Input type="text" label="E-mail cím" {...register("email")} error={!!errors.email}  name="email"/>
+                <Input type="text" label="Telefonszám" {...register("phoneNumber")} error={!!errors.phoneNumber} name="phone"/>
             </div>
             <textarea
                 {...register("comment")}
-                className="border-2 border-gray-500 w-full"
+                className="border-2  border-gray-500 w-full"
                 rows={5}
             />
             <div className="flex items-center justify-between">

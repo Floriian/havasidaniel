@@ -10,7 +10,7 @@ import {ardela} from "@/utils";
 export function Navbar() {
     const { isInLanding, activeArticle } = useAppStore();
 
-    const backgroundColor = clsx("flex justify-between absolute p-4 w-full transition-colors duration-150", {
+    const backgroundColor = clsx("flex justify-between absolute p-4 w-full transition-colors duration-150 bg-transparent", {
         "bg-zinc-950": !isInLanding,
     })
 

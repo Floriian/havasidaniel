@@ -1,15 +1,24 @@
 import Image from "next/image";
+import {ardela} from "@/utils";
 export function LandingContainer() {
     return (
-        <div className="relative w-full h-half">
+        <div className="relative w-full">
             <Image
-                src="/landing_placeholder.jpg"
+                src="/header.png"
                 alt="Havasi Dániel Edvin"
-                objectFit="cover"
                 priority={true}
-                height={1080}
+                height={1293}
                 width={1920}
             />
+            <div
+                className="absolute text-2xl md:text-7xl text-white top-96 left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto">
+                <div className="relative">
+                    <Image src="/logo.webp" width={1024} height={1024} alt="Havasi Dániel Edvin"/>
+                </div>
+                <h1 className={ardela.className + " text-center"}>HED</h1>
+                <h1 className={ardela.className + " text-center"}>PHOTOGRAPHY</h1>
+
+            </div>
         </div>
     )
 }

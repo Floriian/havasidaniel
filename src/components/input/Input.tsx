@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { InputHTMLAttributes, forwardRef } from "react";
 
 const variants = cva(
-    "block autofill:bg-transparent rounded-md px-2.5 pb-2.5 pt-5 w-full text-sm bg-zinc-950 border-2 appearance-none focus:outline-none focus:ring-0 focus:border-purple-500 peer",
+    "bg-transparent block autofill:bg-transparent rounded-md px-2.5 pb-2.5 pt-5 w-full text-sm border-2 appearance-none focus:outline-none focus:ring-0 focus:border-purple-500 peer",
     {
         variants: {
             variant: {},
@@ -18,12 +18,11 @@ const variants = cva(
 export interface InputProps
     extends InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof variants> {
-    name: string;
     label?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ className, error, variant, name, label, ...props }, ref) => {
+        ({ className, error, variant, name, label, ...props }, ref) => {
         return (
             <div className="relative">
                 <input
@@ -43,7 +42,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                         scale-75 
                         top-2 z-10 
                         origin-[0] 
-                        bg-zinc-950 px-2 
+                        px-2
                         peer-focus:px-2 
                         peer-focus:text-purple-600 
                         peer-placeholder-shown:scale-100 
@@ -51,7 +50,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                         peer-placeholder-shown:top-1/2 
                         peer-focus:top-2 
                         peer-focus:scale-75 
-                        peer-focus:-translate-y-4 
+                        peer-focus:-translate-y-4
+                        peer-focus:bg-zinc-950
+                        peer-focus:rounded-xl
+                        peer-focus:px-3
+                        peer-focus:text-md
                         rtl:peer-focus:translate-x-1/4 
                         rtl:peer-focus:left-auto start-1"
                 >

@@ -22,7 +22,7 @@ export function LandingSection() {
     }, [inView]);
 
     return (
-        <article id="landing" ref={ref}>
+        <article id="landing" ref={ref} className="w-full">
             <LandingContainer />
         </article>
     )

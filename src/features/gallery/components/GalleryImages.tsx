@@ -23,8 +23,8 @@ export function GalleryImages() {
     }, [gallery]);
 
     return (
-        <div className="flex flex-col gap-4 mt-4 mb-4">
-            <div className="flex justify-center gap-4">
+        <div className="flex flex-col w-3/4 gap-4 mt-4 mb-4">
+            <div className="flex justify-center  gap-4 ">
                 <Button onClick={() => setGallery("wedding")} primary={gallery === "wedding"} key="wedding" className="flex w-auto align-items-center">
                     Esküvői képek
                     {gallery === "wedding" && <CallReceivedIcon />}
@@ -34,8 +34,8 @@ export function GalleryImages() {
                     {gallery === "party" && <CallReceivedIcon />}
                 </Button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" id="gallery">
-                {isLoading && new Array(16).fill(null).map((_, i) => (<Spinner key={i} />))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 " id="gallery">
+                {isLoading && new Array(4).fill(null).map((_, i) => (<Spinner key={i} />))}
                 {!isLoading && imgs?.map((img, i) => (
                     <Image src={img} alt={img} key={i} sizes="(max-width: 1024px) 100vw, 700px" />
                 ))}

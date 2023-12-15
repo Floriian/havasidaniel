@@ -8,7 +8,7 @@ interface AppProps {
 }
 
 export const useAppStore = create<AppProps>((set) => ({
-  isInLanding: false,
+  isInLanding: true,
   setIsLanding: (value: boolean) => set({ isInLanding: value }),
   activeArticle: "landing",
   setActiveArticle: (value: "landing" | "gallery" | "contacts") => set({ activeArticle: value })
