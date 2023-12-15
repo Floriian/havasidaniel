@@ -1,13 +1,11 @@
 "use client";
 
-import { SubmitHandler, UseFormRegister, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { actions, contactSchema, type ContactSchema } from "@features/contact";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef, useState } from "react";
-import clsx from "clsx";
-import { Button } from "@components/button";
-import { Input } from "@components/input";
+import { TextArea, Button, Input } from "@/components";
 export function ContactForm() {
     const captchaRef = useRef<ReCAPTCHA>(null);
 
@@ -22,7 +20,7 @@ export function ContactForm() {
     });
 
     const onSubmit: SubmitHandler<ContactSchema> = async (data) => {
-        const { success } = await actions.createContact(data);
+        await actions.createContact(data);
     };
 
     const verifiyCaptcha = async (token: string | null) => {
@@ -38,9 +36,8 @@ export function ContactForm() {
                 <Input type="text" label="E-mail cím" {...register("email")} error={!!errors.email}  name="email"/>
                 <Input type="text" label="Telefonszám" {...register("phoneNumber")} error={!!errors.phoneNumber} name="phone"/>
             </div>
-            <textarea
+            <TextArea
                 {...register("comment")}
-                className="border-2  border-gray-500 w-full"
                 rows={5}
             />
             <div className="flex items-center justify-between">

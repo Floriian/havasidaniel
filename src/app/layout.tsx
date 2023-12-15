@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Havasi Dániel Edvin',
-  description: 'Havasi Dániel Edvin esküvői fotós, party fotós, portréfotós',
+  description: 'Havasi Dániel Edvin, aki nem csak esküvői fotósként, de party fotósként és portréfotósként is kiválóan teljesít. Professzionális szolgáltatásai közé tartozik az esküvői fotózás, party fotózás és portréfotózás. Havasi Dániel Edvin a legjobb választás minden fotózási igényre.',
   keywords: ['Havasi', 'Dániel', 'Edvin', 'Fotó', "Party", "Portréfotó", "Esküvői fotózás", "Havasi Dániel Edvin", "HED Photography", "Rendezvény fotózás", "Rendezvény", "Fotózás"],
 }
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="hu">
       <body className={inter.className + " text-white bg-zinc-950 bg-main bg-no-repeat object-fit absolute bg-cover"}>
         <Navbar />
         {children}
