@@ -32,13 +32,13 @@ export function ContactForm() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <div className="grid grid-cols-3 gap-4">
-                <Input type="text" label="Név" {...register("name")} error={!!errors.name} name="name"/>
-                <Input type="text" label="E-mail cím" {...register("email")} error={!!errors.email}  name="email"/>
-                <Input type="text" label="Telefonszám" {...register("phoneNumber")} error={!!errors.phoneNumber} name="phone"/>
+                <Input type="text" label="Név" {...register("name")} error={!!errors.name} name="name" />
+                <Input type="text" label="E-mail cím" {...register("email")} error={!!errors.email} name="email" />
+                <Input type="text" label="Telefonszám" {...register("phoneNumber")} error={!!errors.phoneNumber} name="phone" />
             </div>
             <TextArea
                 {...register("comment")}
-                rows={5}
+                rows={10}
             />
             <div className="flex items-center justify-between">
                 <ReCAPTCHA
