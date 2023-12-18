@@ -18,10 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="hu">
-      <body className={inter.className + " text-white bg-zinc-950 bg-main bg-no-repeat object-fit absolute bg-cover"}>
+      <body className={inter.className + " text-white bg-zinc-950 w-full bg-main bg-no-repeat object-fit bg-cover"}>
         <Navbar />
         {children}
-        <footer className="mt-5"></footer>
       </body>
     </html>
   )

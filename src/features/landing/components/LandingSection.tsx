@@ -14,7 +14,7 @@ export function LandingSection() {
     }, [inView])
 
     useEffect(() => {
-        if(inView) setActiveArticle("landing");
+        if (inView) setActiveArticle("landing");
     }, [inView]);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export function LandingSection() {
     }, [inView]);
 
     return (
-        <article id="landing" ref={ref} className="w-full">
+        <article id="landing" ref={ref} className="sm:px-2 md:px-24">
             <LandingContainer />
         </article>
     )
