@@ -5,6 +5,9 @@ const nextConfig = {
       {
         hostname: "d218d58n4tyfby.cloudfront.net",
       },
+      {
+        hostname: "fastly.picsum.photos",
+      },
     ],
   },
 };
