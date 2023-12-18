@@ -3,7 +3,7 @@ import { GalleryImages } from "@features/gallery";
 
 export function GallerySection() {
     return (
-        <Article>
+        <Article id="gallery">
             <GalleryImages />
         </Article>
     )

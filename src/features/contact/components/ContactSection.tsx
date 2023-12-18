@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function ContactSection() {
     return (
-        <Article toggleDivider>
+        <Article toggleDivider id="contact">
             <div className="[&>img]:rounded-xl mb-24 xl:mb-0 w-full">
                 <div className="relative w-full">
                     <div className="absolute w-full grid grid-cols-12">
