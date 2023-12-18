@@ -4,9 +4,10 @@ import clsx from "clsx";
 import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { ardela } from "@/utils";
+import { useEffect } from "react";
 
 export function Navbar() {
-  const { isInLanding, activeArticle } = useAppStore();
+  const { isInLanding, activeArticle, setActiveArticle } = useAppStore();
 
   const backgroundColor = clsx(
     "hidden md:flex justify-between absolute p-4 w-full transition-colors duration-150 bg-transparent",
@@ -28,13 +29,13 @@ export function Navbar() {
           </h3>
         </div>
         <div className="flex gap-[10px] uppercase">
-          <Link href="#landing" scroll={true} className={activeLink}>
+          <Link href="#landing" scroll={true} className={activeLink} onClick={() => setActiveArticle("landing")}>
             Bemutatkozás
           </Link>
-          <Link href="#gallery" scroll={true} className={activeLink}>
+          <Link href="#gallery" scroll={true} className={activeLink} onClick={() => setActiveArticle("gallery")}>
             Galéria
           </Link>
-          <Link href="#contact" scroll={true} className={activeLink}>
+          <Link href="#contact" scroll={true} className={activeLink} onClick={() => setActiveArticle("contacts")}>
             Kapcsolat
           </Link>
         </div>
@@ -45,7 +46,7 @@ export function Navbar() {
         >
           <InstagramIcon /> <span>@havasidaniel</span>
         </a>
-      </nav>
-    </header>
+      </nav >
+    </header >
   );
 }
