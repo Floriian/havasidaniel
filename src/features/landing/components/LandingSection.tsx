@@ -1,5 +1,6 @@
 "use client";
 
+import { Article } from "@components/article";
 import { Button } from "@components/button";
 import { useAppStore } from "@features/app";
 import { ArrowDownward } from "@mui/icons-material";
@@ -25,7 +26,7 @@ export function LandingSection() {
     }, [inView]);
 
     return (
-        <article id="landing" ref={ref} className="sm:px-2 md:px-24">
+        <Article id="landing" ref={ref}>
             <div className="relative h-screen w-[100vw-1rem]">
                 <Image
                     src="/header.png"
@@ -53,6 +54,6 @@ export function LandingSection() {
                     </div>
                 </div>
             </div>
-        </article>
+        </Article>
     )
 }
