@@ -10,9 +10,7 @@ export interface ArticleProps extends HTMLAttributes<HTMLElement> {
 export const Article = forwardRef<HTMLElement, ArticleProps>(
     ({ className, children, toggleDivider, ...props }, ref) => {
 
-        const dividerClasses = clsx('h-px w-[100vw-5rem] border-gray-600 border mx-24 my-8', {
-            'hidden': toggleDivider,
-        })
+        const dividerClasses = clsx('h-px w-[100vw-5rem] border-gray-600 border mx-24 my-8')
 
         return (
             <>
@@ -21,7 +19,7 @@ export const Article = forwardRef<HTMLElement, ArticleProps>(
                     className={cn("sm:px-2 md:px-24", className)}
                     {...props}
                 >{children}</article>
-                <hr className={dividerClasses} />
+                {!toggleDivider && <hr className={dividerClasses} />}
             </>
         );
     }
