@@ -40,7 +40,7 @@ export function ContactForm() {
                 {...register("comment")}
                 rows={10}
             />
-            <div className="grid grid-rows-2 items-center align-middle">
+            <div className="grid grid-cols-2 items-center align-middle">
                 <ReCAPTCHA
                     size="normal"
                     sitekey="6LeFlx8pAAAAALV3R7myD7JZjCaqSaN5g_w5VaaE"
