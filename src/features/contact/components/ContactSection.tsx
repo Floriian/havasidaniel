@@ -18,7 +18,7 @@ export function ContactSection() {
     useEffect(() => console.log(activeArticle), [activeArticle]);
 
     return (
-        <Article toggleDivider id="contact" ref={ref}>
+        <Article toggleDivider id="contacts" ref={ref}>
             <ContactContent />
         </Article>
     )

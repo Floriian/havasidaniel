@@ -1,54 +1,70 @@
 "use client";
 import { useAppStore } from "@features/app";
 import clsx from "clsx";
-import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import MenuIcon from '@mui/icons-material/Menu';
 import { ardela } from "@/utils";
+import { useState } from "react";
+import { NavLink } from "@components/layout";
 
 export function Navbar() {
-  const { isInLanding, activeArticle, setActiveArticle } = useAppStore();
+  const { activeArticle } = useAppStore();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const backgroundColor = clsx(
-    "hidden md:flex justify-between absolute p-4 w-full transition-colors duration-150 bg-transparent",
+  const desktopStyles = clsx(
+    "hidden lg:flex justify-between absolute p-4 w-full transition-colors duration-150 bg-transparent",
     {
       "bg-zinc-950": activeArticle !== "landing",
     },
   );
 
-  // const activeLink = "text-[14px] py-2.5 px-1.5 border-2 rounded-md hover:bg-white hover:text-purple-900 transition-colors duration-300 backdrop-blur-xl";
+  const mobileStyles = clsx("lg:hidden absolute p-4 w-full", {
+    "bg-zinc-950": activeArticle !== "landing" || isOpen,
+    "h-screen": isOpen,
+  });
 
-  const isActiveLink = (href: string) => clsx("text-[14px] py-2.5 px-1.5 border-2 rounded-md transition-colors duration-300 backdrop-blur-xl", {
-    "bg-white text-purple-900": activeArticle === href,
-    "bg-transparent text-white": activeArticle !== href,
-  })
+  const isOpenIconClass = clsx("transition-transform duration-500", {
+    "rotate-90": isOpen,
+    "rotate-0": !isOpen,
+  });
 
   return (
     <header className="sticky z-50 top-0">
-      <nav className={backgroundColor}>
-        <div>
+      <nav>
+        <div className={desktopStyles}>
           <h3 className={"uppercase text-[20px] " + ardela.className}>
             HED Photography
           </h3>
+          <div className="flex gap-[10px] uppercase">
+            <NavLink href="landing">Bemutatkozás</NavLink>
+            <NavLink href="gallery">Galéria</NavLink>
+            <NavLink href="contacts">Kapcsolat</NavLink>
+          </div>
+          <a
+            href={"https://instagram.com/edvinhavasi_"}
+            target="_blank"
+            className="text-[14px] py-2.5 px-1.5 border-2 rounded-md hover:bg-white hover:text-purple-900 transition-colors duration-300 backdrop-blur-xl"
+          >
+            <InstagramIcon /> <span>@edvinhavasi_</span>
+          </a>
         </div>
-        <div className="flex gap-[10px] uppercase">
-          <Link href="#landing" scroll={true} className={isActiveLink("landing")} onClick={() => setActiveArticle("landing")}>
-            Bemutatkozás
-          </Link>
-          <Link href="#gallery" scroll={true} className={isActiveLink("gallery")} onClick={() => setActiveArticle("gallery")}>
-            Galéria
-          </Link>
-          <Link href="#contact" scroll={true} className={isActiveLink("contacts")} onClick={() => setActiveArticle("contacts")}>
-            Kapcsolat
-          </Link>
+        <div className={mobileStyles}>
+          <div className="flex w-full justify-end">
+            <MenuIcon onClick={() => setIsOpen(!isOpen)} className={isOpenIconClass} />
+          </div>
+          {isOpen && (
+            <div className="flex flex-col gap-4 items-center w-full h-full">
+              <h3 className={"uppercase text-[20px]" + ardela.className}>
+                HED Photography
+              </h3>
+              <hr className="h-px w-full border-gray-600 border" />
+              <NavLink href="landing">Bemutatkozás</NavLink>
+              <NavLink href="gallery">Galéria</NavLink>
+              <NavLink href="contacts">Kapcsolat</NavLink>
+            </div>
+          )}
         </div>
-        <a
-          href={"https://instagram.com/edvinhavasi_"}
-          target="_blank"
-          className="text-[14px] py-2.5 px-1.5 border-2 rounded-md hover:bg-white hover:text-purple-900 transition-colors duration-300 backdrop-blur-xl"
-        >
-          <InstagramIcon /> <span>@edvinhavasi_</span>
-        </a>
-      </nav >
-    </header >
+      </nav>
+    </header>
   );
 }
